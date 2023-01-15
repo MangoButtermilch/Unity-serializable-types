@@ -30,4 +30,8 @@ public static class UnityTypesExtensions {
             matrix.GetRow(3).ToSerializable()
         );
     }
+
+    public static TransformSerializable ToSerializable(this Transform tr) {
+        return new TransformSerializable(tr);
+    }
 }

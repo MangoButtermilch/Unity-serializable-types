@@ -96,3 +96,24 @@ public struct Matrix4x4Serializable {
             this.row4.ToVector4());
     }
 }
+
+[System.Serializable]
+public struct TransformSerializable {
+    public Vector3Serializable position;
+    public QuaternionSerializable rotation;
+    public Vector3Serializable scale;
+
+    public TransformSerializable(Transform tr) {
+        this.position = tr.position.ToSerializable();
+        this.rotation = tr.rotation.ToSerializable();
+        this.scale = tr.localScale.ToSerializable();
+    }
+
+    public Transform ToTransform() {
+        GameObject go = new GameObject();
+        go.transform.position = this.position.ToVector3();
+        go.transform.rotation = this.rotation.ToQuaternion();
+        go.transform.localScale = this.scale.ToVector3();
+        return go.transform;
+    }
+}
