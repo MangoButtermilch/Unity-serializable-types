@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public static class UnityTypesExtensions {
 
@@ -34,4 +36,30 @@ public static class UnityTypesExtensions {
     public static TransformSerializable ToSerializable(this Transform tr) {
         return new TransformSerializable(tr);
     }
+
+    public static SliderSerializable ToSerializable(this Slider slider) {
+        return new SliderSerializable(slider);
+    }
+
+    public static ToggleSerializable ToSerializable(this Toggle toggle) {
+        return new ToggleSerializable(toggle);
+    }
+
+    public static DropdownSerializable ToSerializable(this Dropdown dropdown) {
+        return new DropdownSerializable(dropdown);
+    }
+
+    public static TMPDropdownSerializable ToSerializable(this TMP_Dropdown dropdown) {
+        return new TMPDropdownSerializable(dropdown);
+    }
+
+    public static InputFieldSerializable ToSerializable(this InputField input) {
+        return new InputFieldSerializable(input);
+    }
+
+    public static TMPInputFieldSerializable ToSerializable(this TMP_InputField input) {
+        return new TMPInputFieldSerializable(input);
+    }
+   
+
 }

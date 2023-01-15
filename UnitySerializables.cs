@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 [System.Serializable]
 public struct Vector4Serializable {
@@ -115,5 +117,65 @@ public struct TransformSerializable {
         go.transform.rotation = this.rotation.ToQuaternion();
         go.transform.localScale = this.scale.ToVector3();
         return go.transform;
+    }
+}
+
+[System.Serializable]
+public struct SliderSerializable {
+
+    public float value;
+
+    public SliderSerializable(Slider s) {
+        this.value = s.value;
+    }
+}
+
+[System.Serializable]
+public struct ToggleSerializable {
+
+    public bool value;
+
+    public ToggleSerializable(Toggle t) {
+        this.value = t.isOn;
+    }
+}
+
+[System.Serializable]
+public struct DropdownSerializable {
+
+    public int value;
+
+    public DropdownSerializable(Dropdown d) {
+        this.value = d.value;
+    }
+}
+
+[System.Serializable]
+public struct TMPDropdownSerializable {
+
+    public int value;
+
+    public TMPDropdownSerializable(TMP_Dropdown d) {
+        this.value = d.value;
+    }
+}
+
+[System.Serializable]
+public struct InputFieldSerializable {
+
+    public string text;
+
+    public InputFieldSerializable(InputField i) {
+        this.text = i.text;
+    }
+}
+
+[System.Serializable]
+public struct TMPInputFieldSerializable {
+
+    public string text;
+
+    public TMPInputFieldSerializable(TMP_InputField i) {
+        this.text = i.text;
     }
 }
